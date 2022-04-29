@@ -1,0 +1,87 @@
+<!--
+ * @Date: 2022-04-28 09:02:10
+ * @LastEditors: WangHe
+ * @LastEditTime: 2022-04-29 09:12:53
+ * @FilePath: /learning-frontend/3-day/index.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="css/style.css" rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <h1> 表单功能实例</h1>
+    </header>
+    <section>
+        <form>
+            <ol>
+                <li>
+                    <label for="priority">
+                        Priority
+                </label>
+                    <input type="range" min="0" max="10" name="priority" value="5" id="priority">
+                </li>
+                <li>
+                    <label for="estimated_hours">Estimated Hours</label>
+                    <input type="number" name="estimated_hours" min="0" max="1000" id="estimated_hours">
+                </li>
+                <li>
+                    <p>
+                        required 可以验证表单字的必真项，也可以用正则表达式
+                    </p>
+                </li>
+                <li>
+                    <label for="email"> Email Contact</label>
+                    <input type="email" required name="email" placeholder="email" id="email" autocomplete="on">
+                </li>
+                <li>
+                    <label for="url">Staging URL </label>
+                    <input type="url" name="url" id="url">
+                </li>
+                <li>
+                    <label for="project_color">Project Color</label>
+                    <input type="color" name="project_color" id="project_color">
+                </li>
+                <li>
+                    <p>
+                        不必将autofocus 属性设为true 或autofocus ，只要autofocus 属性在字段中出现，相应特性便会在浏览器中生效。 为了顺利实现目标，一个页面只能有一个autofocus 属性。如果设置了多个autofocus 属性，浏览器只会将光标定位在最后设置的那个表单字段上。
+
+                    </p>
+                    <p>
+                        为了顺利实现目标，一个页面只能有一个autofocus 属性。如果设置了多个autofocus 属性，浏览器只会将光标定位在最后设置的那个表单字段上。
+                    </p>
+                    <label for="name" name="name" id="name"> name </label>
+                    <input type="text" name="name" id="name">
+
+                </li>
+
+                <li>
+                    <!-- 正测表达式验证 -->
+                    <label for="password" name="password" autofocus>Password</label>
+                    <input id="password" required type="password" name="password" value="" autocomplete="off" placeholder="Type your password again" pattern="^(?=.{8,})(?=.*[a-z])(?=.*[A-Z])(?=.*[\d])(?=.*[\W]).*$" title="Password must be 8 or more characters with at least one number, an uppercase letter, and one special character"
+                        autofocus>
+                </li>
+                <li>
+                    <input type="submit" value="sign up">
+                </li>
+
+                <p>
+                    还有一件事情无法借助这些验证属性来完成：确保密码字段与密码确认字段的内容一致。这时，我们需要借助JavaScript来处理。
+                </p>
+
+
+            </ol>
+
+
+
+        </form>
+    </section>
+</body>
+
+</html>

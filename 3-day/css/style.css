@@ -1,0 +1,60 @@
+fieldset {
+    width: 216px;
+}
+
+ol {
+    list-style: none;
+    margin: 2px;
+    padding: 0;
+}
+
+ol li {
+    clear: both;
+    margin: 0 0 9px 0;
+    padding: 0;
+}
+
+label {
+    float: left;
+    width: 150px;
+}
+
+
+/*
+让输入字段回到自己的行
+*/
+
+fieldset input {
+    display: block;
+}
+
+input {
+    border: 5px solid #333;
+}
+
+
+/*
+input:focus{ background-color: #f
+fe; }
+ 通过:focus
+伪类，可以为当前的焦点字段设置样式。
+这种方式给我们带来一个漂亮且语义良好的Web表单，具有一定的技术前瞻性，并能够使用CSS来识别每个字段。
+Chrome以及Opera支持大多数的新控件，但在Firefox、Safari或者IE中，许多新字段将显示为普通的文本字段。
+*/
+
+input:focus {
+    background-color: rgb(255, 191, 0);
+}
+
+
+/* 表单字段添加样式 */
+
+input[required]:invalid,
+input[pattern]:invalid {
+    border-color: #a5340b
+}
+
+input[required]:valid,
+input[pattern]:valid {
+    border-color: #0b9900;
+}
