@@ -1,0 +1,239 @@
+<!--
+ * @Date: 2022-04-30 17:50:35
+ * @LastEditors: WangHe
+ * @LastEditTime: 2022-04-30 20:38:50
+ * @FilePath: /learning-frontend/5-day/index.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=800, initial-scale=1.0">
+    <title>学习前端第5天</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 600px;
+        }
+        
+        th,
+        td {
+            border: none;
+        }
+        
+        th {
+            background-color: black;
+            color: #fff;
+        }
+        
+        tr:nth-of-type(even) {
+            background-color: #f3f3f3;
+        }
+        
+        tr:nth-of-type(odd) {
+            background-color: #ddd;
+        }
+        
+        td:nth-child(n+2),
+        th:nth-child(n+2) {
+            text-align: right;
+        }
+        
+        p {
+            margin-bottom: 20px
+        }
+        
+        #sidebar p:last-child {
+            margin-bottom: 0;
+        }
+        
+        h2 {
+            border-style: groove;
+            border-color: brown;
+        }
+        
+        xmp {
+            border-style: dotted;
+            background-color: #000;
+            color: #fff;
+            text-align: left;
+        }
+        
+        div {
+            display: inline;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>表格及样式处理</h1>
+        <h2>使用:nth-of-type给表格行设置条纹</h2>
+        <h2>使用:nth-of-type给表格行设置条纹</h2>
+
+    </header>
+    <section>
+
+
+        <h4>TABLE HTML</h4>
+        <p>
+            <xmp>
+                <table>
+                    <tr>
+                        <th>名称</th>
+                        <th>类型</th>
+                        <th>描述</th>
+                    </tr>
+                    <tr>
+                        <td>name</td>
+                        <td>string</td>
+                        <td>名字</td>
+                    </tr>
+                    <tr>
+                        <td>template_id</td>
+                        <td>int</td>
+                        <td>模板id</td>
+                    </tr>
+                    <tr>
+                        <td>content</td>
+                        <td>string</td>
+                        <td>正文内容</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            title
+                        </td>
+                        <td>string</td>
+                        <td>标题</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            title
+                        </td>
+                        <td>string</td>
+                        <td>标题</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            title
+                        </td>
+                        <td>string</td>
+                        <td>标题</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            title
+                        </td>
+                        <td>string</td>
+                        <td>标题</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            title
+                        </td>
+                        <td>string</td>
+                        <td>标题</td>
+                    </tr>
+                </table>
+            </xmp>
+        </p>
+
+
+
+
+        <h4>
+            CSS
+        </h4>
+        <p>
+
+            <pre>
+            table { border-collapse: collapse; width: 600px; } 
+            th, td { border: none; } 
+            th { background-color: black; color: #fff; } 
+            tr:nth-of-type(even) { background-color: #f3f3f3; } 
+            tr:nth-of-type(odd) { background-color: #ddd; } 
+            h2 { border-style: groove; border-color:brown; }
+
+            nth-child 选择器查找某个元素的子元素，和nth-of-type选择器一样，也可以使用关键字或一个公式。公式的形式是an+b，a是个倍数，n是以0开始算起的计数器，而b是偏移量。在缺乏上下文环境的情况下，是很难理解这种描述的。因此，接下来我们把nth-child选择器放到表格的上下文环境中加以描述。如果打算选择表格所有行，我们可以这么做。
+table tr:nth-child(n):不使用倍数，也不需要偏移量。
+然而，如果这时候我们想获取除第一行（该行包含栏目标题）以外的所有行，这种情况下，将使用带偏移量的选择器。
+table tr:nth-child(n+2):计数器是从0开始计算的，在这里偏移量为2，意思是不从表格第一行开始计算，而是从第二行开始算起。
+如果我们想隔行选择表格行，则需要用到倍数2，即2n。
+table tr:nth-child(2n): 如果要每隔两行选择一行，则使用3n。
+你也可以使用偏移量，以便向前选择表格行。下面的公式将找出从第四行开始的相隔行。
+table tr:nth-child(2n+4) 因此，根据以上说明，我们可以使用以下规则右对齐第一列以外的所有列。
+css3_advanced_selectors/stylesheets/style.css
+td:nth-child(n+2), th:nth-child(n+2){    text-align: right;}
+
+        </pre>
+        </p>
+
+    </section>
+
+
+    <section>
+        <table>
+            <tr>
+                <th>名称</th>
+                <th>类型</th>
+                <th>描述</th>
+            </tr>
+            <tr>
+                <td>name</td>
+                <td>string</td>
+                <td>名字</td>
+            </tr>
+            <tr>
+                <td>template_id</td>
+                <td>int</td>
+                <td>模板id</td>
+            </tr>
+            <tr>
+                <td>content</td>
+                <td>string</td>
+                <td>正文内容</td>
+            </tr>
+            <tr>
+                <td>
+                    title
+                </td>
+                <td>string</td>
+                <td>标题</td>
+            </tr>
+            <tr>
+                <td>
+                    title
+                </td>
+                <td>string</td>
+                <td>标题</td>
+            </tr>
+            <tr>
+                <td>
+                    title
+                </td>
+                <td>string</td>
+                <td>标题</td>
+            </tr>
+            <tr>
+                <td>
+                    title
+                </td>
+                <td>string</td>
+                <td>标题</td>
+            </tr>
+            <tr>
+                <td>
+                    title
+                </td>
+                <td>string</td>
+                <td>标题</td>
+            </tr>
+        </table>
+
+    </section>
+
+</body>
+
+</html>

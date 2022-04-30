@@ -1,0 +1,187 @@
+<!--
+ * @Date: 2022-04-30 21:03:24
+ * @LastEditors: WangHe
+ * @LastEditTime: 2022-04-30 22:50:10
+ * @FilePath: /learning-frontend/5-day/css-doc-flow.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="css/style.css" rel="stylesheet">
+    <style>
+        html,
+        * {
+            box-sizing: border-box;
+            margin: 0;
+        }
+        
+        body {
+            margin: 0px;
+            background-color: #34495e;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .container {
+            margin-top: 100px;
+            width: 480px;
+            height: 300px;
+            background-color: #bdc3c7;
+        }
+        
+        .block {
+            display: block;
+        }
+        
+        .box {
+            width: 140px;
+            height: 40px;
+            border: 1px solid #2c3e50;
+            background-color: #95a56e;
+            color: aliceblue;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .static {
+            position: static;
+        }
+        
+        .relative {
+            position: relative;
+        }
+        
+        .absolute {
+            position: absolute;
+        }
+        
+        .fixed {
+            position: fixed;
+        }
+        
+        .offset {
+            top: 10px;
+            left: 10px;
+        }
+        
+        .flex {
+            display: flex;
+        }
+        
+        .flex-direction-row {
+            flex-direction: row;
+        }
+        
+        .flex-direction-column {
+            flex-direction: column;
+        }
+        
+        .flex-wrap {
+            flex-wrap: wrap;
+        }
+        
+        .flex-align-items {
+            align-items: flex-end;
+        }
+        
+        .flex-justify-content {
+            justify-content: flex-end;
+        }
+        
+        .flex-item-shrink {
+            flex-shrink: 0;
+        }
+        
+        .flex-item-grow {
+            flex-grow: 1;
+        }
+        
+        .green {
+            background-color: green;
+        }
+        
+        .red {
+            background-color: red;
+        }
+        
+        .blue {
+            background-color: blue;
+        }
+        
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            grid-template-rows: repeat(4, 1fr);
+            grid-gap: 10px;
+            grid-template-areas: "nav nav nav nav" "sidebar content content content" "sidebar content content content" "sidebar content content content" "sidebar content content content";
+            grid-auto-flow: column;
+        }
+        
+        #area1 {
+            /* grid-column-start: 1;
+            grid-column-end: 5;
+            grid-row-start: 1;
+            grid-row-end: 2; */
+            grid-area: nav;
+        }
+        
+        #area2 {
+            /* grid-column-start: 1;
+            grid-column-end: 2;
+            grid-row-start: 2;
+            grid-row-end: 5; */
+            grid-area: sidebar;
+        }
+        
+        #area3 {
+            /* grid-column-start: 2;
+            grid-column-end: 5;
+            grid-row-start: 2;
+            grid-row-end: 5; */
+            grid-area: content;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <!-- <h1>css 文档流/布局</h1> -->
+    </header>
+
+    <!-- <section>
+        <img src="css.png" alt="" srcset="" class="block">
+        <img src="css.png" alt="" srcset="" class="block">
+    </section> -->
+
+    <section>
+        <h1> 布局</h1>
+        <div class="container flex flex-direction flex-wrap flex-align-items flex-justify-content">
+            <div class="box flex-item-shrink">1</div>
+            <div class="box flex-item-grow">2</div>
+            <div class="box flex-item-shrink">3</div>
+
+        </div>
+
+        <div class="container grid">
+            <div id="area1" class="blue"></div>
+            <div id="area2" class="green"></div>
+            <div id="area3" class="red"></div>
+
+        </div>
+
+
+
+
+    </section>
+
+
+</body>
+
+</html>

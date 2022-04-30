@@ -1,0 +1,53 @@
+<!--
+ * @Date: 2022-04-29 09:14:46
+ * @LastEditors: WangHe
+ * @LastEditTime: 2022-04-29 09:23:38
+ * @FilePath: /learning-frontend/4-day/index.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="css/style.css" rel="stylesheet">
+</head>
+
+<body id="forms">
+    <header>
+        <h1>学习前端第4天：contenteditable 属性实现就地编辑功能</h1>
+        <p>
+            HTML5引入了contenteditable 新属性，它负责自动提供数据输入功能。我们仍需要编写将数据发送至服务端的JavaScript实现代码，以便保存数据，但有了contenteditable 属性之后，就不用再创建这么多表单字段并来回切换它们的显示状态了。
+        </p>
+    </header>
+
+    <section>
+        <div id="status">
+            <ul>
+                <li>
+                    <b>Name</b>
+                    <span id="name" contenteditable>Hugh Mann</span>
+                </li>
+                <li>
+                    <b>city</b>
+                    <span id="city" contenteditable>Anytown</span>
+                </li>
+                <li>
+                    <b> State </b>
+                    <span id="state" contenteditable="">OH</span>
+                </li>
+                <li>
+                    <b>Postal Code</b>
+                    <span id="postal_code" contenteditable>92110</span>
+                </li>
+                <li>
+                    <b>Email</b>
+                    <span id="email" contenteditable>boss@awesomecompany.com</span>
+                </li>
+            </ul>
+        </div>
+    </section>
+</body>
+
+</html>
