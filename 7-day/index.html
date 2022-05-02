@@ -1,0 +1,82 @@
+<!--
+ * @Date: 2022-05-02 11:53:13
+ * @LastEditors: WangHe
+ * @LastEditTime: 2022-05-02 12:15:11
+ * @FilePath: /learning-frontend/7-day/index.html
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .card {
+            background-color: #ffc;
+            border: 1px solid #000;
+            float: left;
+            height: 200px;
+            width: 300px;
+            margin: 10px;
+        }
+        
+        .editor {
+            border: none;
+            margin: 5%;
+            width: 90%;
+            height: 80%;
+        }
+        
+        .editor:focus {
+            background-color: #ffe;
+        }
+        
+        .editor:active {
+            border: 3px solid #333
+        }
+    </style>
+</head>
+
+<body>
+    <h1>通过拖放来整理内容</h1>
+    <h1>Quick Planner</h1>
+
+    <input type="button" id="addcard" value="Add card">
+    <div id="cards">
+        <div class="card" draggable="true" id="card1">
+            <div class="editor" contenteditable="true"></div>
+        </div>
+    </div>
+
+</body>
+
+<script src=" https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script type="text/javascript">
+    // addCardClickHandler = function() {
+    //     $("#addcard").click(function(event) {
+    //         console.log("----")
+    //     })
+    // }
+
+    var addCardBtn = $("#addcard").click(function() {
+        event.preventDefault();
+
+        var card = $("<div></div>")
+            .attr("id", "card" + window.currentCardIndex++)
+            .attr("class", "card")
+            .attr("draggable", true);
+
+        var editor = $("<div></div>")
+            .attr("contenteditable", true)
+            .attr("class", "editor");
+
+
+        card.append(editor)
+        card.appendTo($("#cards"))
+    })
+</script>
+
+</html>
