@@ -1,7 +1,7 @@
 <!--
  * @Date: 2022-05-02 11:53:13
  * @LastEditors: WangHe
- * @LastEditTime: 2022-05-02 12:15:11
+ * @LastEditTime: 2022-05-02 12:52:21
  * @FilePath: /learning-frontend/7-day/index.html
 -->
 
@@ -46,37 +46,74 @@
 
     <input type="button" id="addcard" value="Add card">
     <div id="cards">
-        <div class="card" draggable="true" id="card1">
+        <!-- <div class="card" draggable="true" id="card1">
             <div class="editor" contenteditable="true"></div>
-        </div>
+        </div> -->
     </div>
 
 </body>
 
 <script src=" https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script type="text/javascript">
-    // addCardClickHandler = function() {
-    //     $("#addcard").click(function(event) {
-    //         console.log("----")
-    //     })
-    // }
-
-    var addCardBtn = $("#addcard").click(function() {
-        event.preventDefault();
-
-        var card = $("<div></div>")
-            .attr("id", "card" + window.currentCardIndex++)
-            .attr("class", "card")
-            .attr("draggable", true);
-
-        var editor = $("<div></div>")
-            .attr("contenteditable", true)
-            .attr("class", "editor");
+    addCardClickHandler = function() {
+        window.currentCardIndex = window.currentCardIndex || 0;
+        var cards = $("#cards");
+        var addCardBtn = $("#addcard").click(function() {
+            event.preventDefault();
 
 
-        card.append(editor)
-        card.appendTo($("#cards"))
-    })
+            var card = $("<div></div>")
+                .attr("id", "card" + window.currentCardIndex++)
+                .attr("class", "card")
+                .attr("draggable", true);
+
+            var editor = $("<div></div>")
+                .attr("contenteditable", true)
+                .attr("class", "editor");
+
+
+            card.append(editor);
+            card.appendTo($("#cards"))
+        })
+    }
+
+
+
+
+
+    var createDragAndDropEvents = function() {
+        var cards = $("#cards");
+
+        cards.on("dragstart", ".card", function(event) {
+
+            console.log("start")
+            event.originalEvent.dataTransfer.setData('text', this.id)
+        })
+        cards.on("drop", ".card", function(event) {
+            event.preventDefault();
+            var id = event.originalEvent.dataTransfer.getData('text');
+            console.log(id);
+            var originalCard = $("#" + id);
+            originalCard.insertAfter(this);
+            return (false);
+        })
+
+        cards.on("dragover", ".card", function(event) {
+            event.preventDefault();
+            return (false);
+        });
+
+        cards.on("focus", ".editor", function(event) {
+            $(this).parent().removeAttr('draggable');
+        });
+        cards.on("blur", ".editor", function(event) {
+            //     console.log($(this).parent())
+            $(this).parent().attr('draggable', true);
+        });
+    };
+
+    createDragAndDropEvents();
+    addCardClickHandler();
 </script>
 
 </html>
